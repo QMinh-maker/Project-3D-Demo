@@ -12,7 +12,8 @@ public class RocketMissle : MonoBehaviour
     {
         Instantiate(explosionPrefab, transform.position,transform.rotation);
         BlowObject();
-        
+        Destroy(gameObject);
+
     }
 
     private void BlowObject()
@@ -27,7 +28,7 @@ public class RocketMissle : MonoBehaviour
                     explosionRadius,1,ForceMode.Impulse);
             }
         }
-        Destroy(gameObject);
+        
 
     }
 }

@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class GunAmmo : MonoBehaviour
 {
     public int magSize;
     public RocketLauncher gun;
-    public AudioSource[] ReloadSound; 
+    public AudioSource[] ReloadSound;
 
+    public UnityEvent LoadedAmmoChanged;
     public TextMeshProUGUI AmmoCount;
+
     //public Animator anim;
 
     private int _loadedAmmo;
@@ -19,6 +22,7 @@ public class GunAmmo : MonoBehaviour
         set
         {
             _loadedAmmo = value;
+            LoadedAmmoChanged.Invoke();
             if (_loadedAmmo <= 0)
             {
                 Reload();
