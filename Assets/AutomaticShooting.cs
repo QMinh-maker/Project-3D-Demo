@@ -10,7 +10,7 @@ public class AutomaticShooting : MonoBehaviour
     public AudioSource ShootSound;
     public GameObject hitMarkerPrefab;
     public Camera aimingCamera;
-    public LayerMask LayerMask;
+    public LayerMask layerMask;
 
     public UnityEvent onShoot;
 
@@ -48,5 +48,17 @@ public class AutomaticShooting : MonoBehaviour
     {
         //anim.Play("Shoot", layer: -1, normalizedTime: 0);
         ShootSound.Play();
+        PerformRayCasting();
+        onShoot.Invoke();
+    }
+
+    private void PerformRayCasting()
+    {
+        Ray aimingRay = new Ray(aimingCamera.transform.position,aimingCamera.transform.forward);
+        if (Physics.Raycast(aimingRay,out RaycastHit hitInfo, 1000f, layerMask))
+        {
+            Quaternion effectRotation = Quaternion.LookRotation(hitInfo.normal);
+            Instantiate(hitMarkerPrefab, hitInfo.point,effectRotation);
+        }
     }
 }
