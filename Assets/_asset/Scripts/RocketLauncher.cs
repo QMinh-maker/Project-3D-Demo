@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketLauncher : MonoBehaviour
+public class RocketLauncher : Shooting
 {
     private const int LeftMouseButton = 0;
     public GameObject bulletPrefab;
     public Transform firingPos;
     public float bulletSpeed;
     public AudioSource ShootingSound;
-    public Animator anim;
+    //public Animator anim;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +19,7 @@ public class RocketLauncher : MonoBehaviour
             //ShootBullet();
             PlayFireSound();
             AddProjectile();
+            
         }
     }
 

@@ -7,7 +7,7 @@ using TMPro;
 public class GunAmmo : MonoBehaviour
 {
     public int magSize;
-    public RocketLauncher gun;
+    public Shooting shooting;
     public AudioSource[] ReloadSound;
 
     public UnityEvent LoadedAmmoChanged;
@@ -15,15 +15,15 @@ public class GunAmmo : MonoBehaviour
 
     //public Animator anim;
 
-    private int _loadedAmmo;
+    private int _loadedAmmoValue;
     public int LoadedAmmo
     {
-        get => _loadedAmmo;
+        get => _loadedAmmoValue;
         set
         {
-            _loadedAmmo = value;
+            _loadedAmmoValue = value;
             LoadedAmmoChanged.Invoke();
-            if (_loadedAmmo <= 0)
+            if (_loadedAmmoValue <= 0)
             {
                 Reload();
             }
@@ -38,11 +38,13 @@ public class GunAmmo : MonoBehaviour
 
     private void SingleFireAmmoCounter() => LoadedAmmo--;
 
-    private void LockShooting() => gun.enabled =false;
+    private void LockShooting() => shooting.enabled =false;
 
-    private void UnlockShooting() => gun.enabled = true;
+    private void UnlockShooting() => shooting.enabled = true;
 
-   
+    public void OnGunSelected() => UpdateShootingLock();
+
+    private void UpdateShootingLock() => shooting.enabled = _loadedAmmoValue > 0;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
