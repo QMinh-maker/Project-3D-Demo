@@ -53,7 +53,7 @@ public class GunAmmo : MonoBehaviour
         }
         if (AmmoCount != null)
         {
-            AmmoCount.text = $"{LoadedAmmo / magSize}";
+            AmmoCount.text = $"{LoadedAmmo} / {magSize}";
         }
 
     }

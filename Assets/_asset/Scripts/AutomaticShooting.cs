@@ -15,7 +15,7 @@ public class AutomaticShooting : Shooting
 
     public UnityEvent onShoot;
     public GunRaycaster gunRaycaster;
-
+    
 
     private float lastShot;
     private float interval;
@@ -31,7 +31,7 @@ public class AutomaticShooting : Shooting
         if (Input.GetMouseButton(0))
         {
             UpdateFiring();
-
+            
         }
     }
 
@@ -53,13 +53,4 @@ public class AutomaticShooting : Shooting
         onShoot.Invoke();
     }
 
-    //private void PerformRayCasting()
-    //{
-    //    Ray aimingRay = new Ray(aimingCamera.transform.position,aimingCamera.transform.forward);
-    //    if (Physics.Raycast(aimingRay,out RaycastHit hitInfo, 1000f, layerMask))
-    //    {
-    //        Quaternion effectRotation = Quaternion.LookRotation(hitInfo.normal);
-    //        Instantiate(hitMarkerPrefab, hitInfo.point,effectRotation);
-    //    }
-    //}
 }
