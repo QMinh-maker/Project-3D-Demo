@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class AutomaticShooting : Shooting
 {
-    //public Animator anim;
+    public Animator anim;
     public int rpm;
     public AudioSource ShootSound;
     public GameObject hitMarkerPrefab;
@@ -47,7 +47,7 @@ public class AutomaticShooting : Shooting
 
     private void Shoot()
     {
-        //anim.Play("Shoot", layer: -1, normalizedTime: 0);
+        anim.Play("Shoot", layer: -1, normalizedTime: 0);
         ShootSound.Play();
         gunRaycaster.PerformRaycasting();
         onShoot.Invoke();

@@ -9,24 +9,36 @@ public class RocketLauncher : Shooting
     public Transform firingPos;
     public float bulletSpeed;
     public AudioSource ShootingSound;
-    //public Animator anim;
+    public Animator anim;
+    public GunAmmo gunAmmo;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(LeftMouseButton))
         {
-            //ShootBullet();
-            PlayFireSound();
-            AddProjectile();
+            ShootBullet();
+            
             
         }
     }
 
-    //private void ShootBullet() => anim.SetTrigger("Shoot");
-    private void PlayFireSound() => ShootingSound.Play();
-    private void AddProjectile()
+    private void ShootBullet()
     {
+        Debug.Log("ShootBullet");
+        anim.SetTrigger("Shoot");
+    }
+
+    public void PlayFireSound()
+    {
+        Debug.Log("PlayFireSound");
+        ShootingSound.Play();
+    }
+
+    public void AddProjectile()
+    {
+        Debug.Log("AddProjectile");
+        gunAmmo.SingleFireAmmoCounter();
         GameObject bullet = Instantiate(bulletPrefab,firingPos.position,firingPos.rotation);
         bullet.GetComponent<Rigidbody>().velocity = firingPos.forward * bulletSpeed;
     }

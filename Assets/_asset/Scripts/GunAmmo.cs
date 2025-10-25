@@ -9,11 +9,11 @@ public class GunAmmo : MonoBehaviour
     public int magSize;
     public Shooting shooting;
     public AudioSource[] ReloadSound;
-
+    public Animator anim;
     public UnityEvent LoadedAmmoChanged;
-    public TextMeshProUGUI AmmoCount;
+   
 
-    //public Animator anim;
+    
 
     private int _loadedAmmoValue;
     public int LoadedAmmo
@@ -36,7 +36,7 @@ public class GunAmmo : MonoBehaviour
 
     private void Start() => RefillAmmo();
 
-    private void SingleFireAmmoCounter() => LoadedAmmo--;
+    public void SingleFireAmmoCounter() => LoadedAmmo--;
 
     private void LockShooting() => shooting.enabled =false;
 
@@ -51,16 +51,12 @@ public class GunAmmo : MonoBehaviour
         {
             Reload();
         }
-        if (AmmoCount != null)
-        {
-            AmmoCount.text = $"{LoadedAmmo} / {magSize}";
-        }
-
+        
     }
 
     private void Reload()
     {
-        //Animation.SetTrigger("Reload");
+        anim.SetTrigger("Reload");
         LockShooting();
     }
 

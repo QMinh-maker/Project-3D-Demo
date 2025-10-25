@@ -13,5 +13,9 @@ public class AmmoTextBinder : MonoBehaviour
         UpdateGunAmmo();
     }
 
-    public void UpdateGunAmmo() => LoadedAmmoText.text = gunAmmo.LoadedAmmo.ToString();
+    public void UpdateGunAmmo()
+    {
+        //Debug.Log("UpdateGunAmmo");
+        LoadedAmmoText.text = gunAmmo.LoadedAmmo.ToString();
+    }
 }
