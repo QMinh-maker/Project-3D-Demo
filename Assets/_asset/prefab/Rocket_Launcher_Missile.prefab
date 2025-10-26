@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5422733309322858363}
   - component: {fileID: 1381585797819996626}
   - component: {fileID: 1381585797819996627}
-  - component: {fileID: 1381585797819996629}
   - component: {fileID: 1381585797819996631}
   m_Layer: 0
   m_Name: Rocket_Launcher_Missile
@@ -117,27 +116,6 @@ CapsuleCollider:
   m_Height: 1.2465546
   m_Direction: 1
   m_Center: {x: 0.0014386178, y: -0.00000047684006, z: -0.00000047683716}
---- !u!95 &1381585797819996629
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4087435394507871164}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 618aff806ecfd714c97c7010c2edcbe1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1381585797819996631
 MonoBehaviour:
   m_ObjectHideFlags: 0

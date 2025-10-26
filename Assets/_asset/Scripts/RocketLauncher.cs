@@ -18,26 +18,24 @@ public class RocketLauncher : Shooting
         if (Input.GetMouseButtonDown(LeftMouseButton))
         {
             ShootBullet();
-            
-            
         }
     }
 
     private void ShootBullet()
     {
-        Debug.Log("ShootBullet");
+        //Debug.Log("ShootBullet");
         anim.SetTrigger("Shoot");
     }
 
     public void PlayFireSound()
     {
-        Debug.Log("PlayFireSound");
+        //Debug.Log("PlayFireSound");
         ShootingSound.Play();
     }
 
     public void AddProjectile()
     {
-        Debug.Log("AddProjectile");
+        //Debug.Log("AddProjectile");
         gunAmmo.SingleFireAmmoCounter();
         GameObject bullet = Instantiate(bulletPrefab,firingPos.position,firingPos.rotation);
         bullet.GetComponent<Rigidbody>().velocity = firingPos.forward * bulletSpeed;
