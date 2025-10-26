@@ -8,6 +8,7 @@ public class DestroyExplosion : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, lifetime);
+        
     }
 
     

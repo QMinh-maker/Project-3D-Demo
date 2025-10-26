@@ -18,6 +18,7 @@ public class RocketLauncher : Shooting
         if (Input.GetMouseButtonDown(LeftMouseButton))
         {
             ShootBullet();
+            
         }
     }
 

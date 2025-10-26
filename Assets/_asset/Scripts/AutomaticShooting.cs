@@ -47,7 +47,7 @@ public class AutomaticShooting : Shooting
 
     private void Shoot()
     {
-        anim.Play("Shoot", layer: -1, normalizedTime: 0);
+        anim.Play("AK_Shoot", layer: -1, normalizedTime: 0);
         ShootSound.Play();
         gunRaycaster.PerformRaycasting();
         onShoot.Invoke();
