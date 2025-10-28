@@ -23,6 +23,20 @@ public class GunRaycaster : MonoBehaviour
 
     }
 
+    private void ShowHitEffect(RaycastHit hitInfo)
+    {
+        HitSurface hitSurface = hitInfo.collider.GetComponent<HitSurface>();
+        if (hitSurface != null)
+        {
+            GameObject effectPrefab = HitEffectManager.Instance.GetEffectPrefab(hitSurface.surfaceType);
+            if (effectPrefab != null)
+            {
+                Quaternion effectRotation = Quaternion.LookRotation(hitInfo.normal);
+                Instantiate(effectPrefab, hitInfo.point, effectRotation);
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Debug.DrawRay(aimingCamera.transform.position, aimingCamera.transform.forward * 1000f, Color.red);
