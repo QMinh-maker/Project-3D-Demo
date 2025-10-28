@@ -8,14 +8,11 @@ public class AutomaticShooting : Shooting
     public Animator anim;
     public int rpm;
     public AudioSource ShootSound;
-    public GameObject hitMarkerPrefab;
-    public Camera aimingCamera;
-    public LayerMask layerMask;
 
 
     public UnityEvent onShoot;
     public GunRaycaster gunRaycaster;
-    
+    public GunAmmo gunAmmo;
 
     private float lastShot;
     private float interval;
@@ -33,6 +30,10 @@ public class AutomaticShooting : Shooting
             UpdateFiring();
             
         }
+        else
+        {
+            anim.Play("Ak_idle");
+        }
     }
 
     private void UpdateFiring()
@@ -42,15 +43,17 @@ public class AutomaticShooting : Shooting
             Shoot();
             lastShot = Time.time;
         }
-
+        
     }
 
     private void Shoot()
     {
         anim.Play("AK_Shoot", layer: -1, normalizedTime: 0);
         ShootSound.Play();
+        gunAmmo.SingleFireAmmoCounter();
         gunRaycaster.PerformRaycasting();
         onShoot.Invoke();
+        
     }
 
 }

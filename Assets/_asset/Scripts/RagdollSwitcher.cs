@@ -24,6 +24,12 @@ public class RagdollSwitcher : MonoBehaviour
             DestroyImmediate(joints[i]);
         }
 
+        Rigidbody[] rigidList = GetComponentsInChildren<Rigidbody>();
+        for (int i = 0; i < rigidList.Length; i++)
+        {
+            DestroyImmediate(rigidList[i]);
+        }
+
         Collider[] colls = GetComponentsInChildren<Collider>();
         for (int i = 0; i < colls.Length; i++)
         {

@@ -20,14 +20,17 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("TakeDamage");
         if (IsDead) return;
 
         healthPoint -= damage;
+        Debug.Log($"curernt healthPoint : {healthPoint} - damage: {damage} ");
         if (IsDead)
         {
             Die();
             Debug.Log("Die");
         }
+        
     }
 
     private void Die()

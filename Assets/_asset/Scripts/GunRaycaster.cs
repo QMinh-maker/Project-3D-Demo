@@ -14,10 +14,18 @@ public class GunRaycaster : MonoBehaviour
 
         if (Physics.Raycast(aimingRay, out RaycastHit hitInfo, 1000f, layerMask))
         {
+
+            Debug.Log($"perform raycast {hitInfo.collider.name}");
             Quaternion effectRotation = Quaternion.LookRotation(hitInfo.normal);
             Instantiate(hitMarkerPrefab, hitInfo.point, effectRotation);
             DeliverDamage(hitInfo);
         }
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(aimingCamera.transform.position, aimingCamera.transform.forward * 1000f, Color.red);
     }
 
     // Update is called once per frame
@@ -28,5 +36,6 @@ public class GunRaycaster : MonoBehaviour
         {
             health.TakeDamage(damage);
         }
+        Debug.Log("DeliverDamage");
     }
 }
