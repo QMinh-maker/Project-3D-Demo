@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunRaycaster : MonoBehaviour
 {
-    public GameObject hitMarkerPrefab;
+    
     public Camera aimingCamera;
     public LayerMask layerMask;
     public int damage;
@@ -14,10 +14,7 @@ public class GunRaycaster : MonoBehaviour
 
         if (Physics.Raycast(aimingRay, out RaycastHit hitInfo, 1000f, layerMask))
         {
-
-            Debug.Log($"perform raycast {hitInfo.collider.name}");
-            Quaternion effectRotation = Quaternion.LookRotation(hitInfo.normal);
-            Instantiate(hitMarkerPrefab, hitInfo.point, effectRotation);
+            ShowHitEffect(hitInfo);
             DeliverDamage(hitInfo);
         }
 
