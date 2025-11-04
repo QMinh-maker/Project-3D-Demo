@@ -19,6 +19,17 @@ public class RocketMissle : MonoBehaviour
         
     }
 
+    private void BlowObject()
+    {
+        oldVictims.Clear();
+        Collider[] affectedObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+        for (int i = 0; i < affectedObjects.Length; i++)
+        {
+            DeliverDamage(affectedObjects[i]);
+            AddForceToObject(affectedObjects[i]);
+        }
+    }
+
     private void DeliverDamage(Collider victim)
     {
         Health health = victim.GetComponentInParent<Health>();
@@ -28,24 +39,21 @@ public class RocketMissle : MonoBehaviour
             oldVictims.Add(health);
         }
     }
-    private void BlowObject()
+
+
+    private void AddForceToObject(Collider affectedObjects)
     {
-        oldVictims.Clear();
-        Collider[] affectedObjects = Physics.OverlapSphere(transform.position, explosionRadius);
-        for (int i = 0; i < affectedObjects.Length; i++)
-        {
-            Rigidbody rigidbody = affectedObjects[i].attachedRigidbody;
-            if (rigidbody)
-            {
-                rigidbody.AddExplosionForce(explosionForce,transform.position,
-                    explosionRadius,1,ForceMode.Impulse);
-            }
-        }
+    Rigidbody rigidbody = affectedObjects.attachedRigidbody;
+    if (rigidbody)
+       {
+          rigidbody.AddExplosionForce(explosionForce, transform.position,
+           explosionRadius, 1, ForceMode.Impulse);
+       }        
     }
 
 
 
-   
+
 }
 
 
