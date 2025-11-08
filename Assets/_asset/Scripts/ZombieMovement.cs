@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
@@ -12,7 +10,8 @@ public class ZombieMovement : MonoBehaviour
     public float reachingRadius;
     public UnityEvent onDestinationReached;
     public UnityEvent onStartMoving;
-   
+    public ZombieAttack zombieAttack;
+
 
     private bool _isMovingValue;
     public bool IsMoving
@@ -33,12 +32,12 @@ public class ZombieMovement : MonoBehaviour
         if (_isMovingValue)
         {
             onStartMoving.Invoke();
-            
+
         }
         else
         {
             onDestinationReached.Invoke();
-           
+
         }
     }
 
@@ -46,16 +45,18 @@ public class ZombieMovement : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, playerFoot.position);
-        if (distance > reachingRadius) 
+        if (distance > reachingRadius)
         {
-            agent.isStopped = false;
-            agent.SetDestination(playerFoot.position);
             anim.SetBool("IsWalking", true);
+            agent.isStopped = false;
+            agent.SetDestination(playerFoot.position);            
+            zombieAttack.StopAttack();
         }
         else
         {
-            agent.isStopped=true;
-            anim.SetBool("IsWalking",false);
+            agent.isStopped = true;
+            anim.SetBool("IsWalking", false);
+            zombieAttack.StartAttack();
         }
     }
 }

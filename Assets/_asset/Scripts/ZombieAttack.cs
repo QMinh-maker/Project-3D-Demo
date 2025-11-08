@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
 {
     public Animator anim;
-    public int damage;
+    public int damage = 10;
     public Health playerHealth;
 
     public void StartAttack()
     {
-        anim.SetBool("IsAttacking", true);
+        if (!anim.GetBool("IsAttacking"))
+            anim.SetBool("IsAttacking", true);
     }
 
     public void StopAttack()
@@ -18,8 +17,10 @@ public class ZombieAttack : MonoBehaviour
         anim.SetBool("IsAttacking", false);
     }
 
+    // Gọi từ animation event khi zombie vung tay chạm player
     public void OnAttack()
     {
-        playerHealth.TakeDamage(damage);
+       
+            playerHealth.TakeDamage(damage);
     }
 }
