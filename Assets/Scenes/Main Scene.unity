@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 71583375}
-  damage: 1
+  damage: 10
   playerHealth: {fileID: 1570001089}
 --- !u!1 &155823592 stripped
 GameObject:

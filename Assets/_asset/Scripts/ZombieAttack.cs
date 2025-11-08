@@ -9,7 +9,7 @@ public class ZombieAttack : MonoBehaviour
     public void StartAttack()
     {
         if (!anim.GetBool("IsAttacking"))
-            anim.SetBool("IsAttacking", true);
+            anim.SetBool("IsAttacking", true);        
     }
 
     public void StopAttack()
@@ -21,6 +21,7 @@ public class ZombieAttack : MonoBehaviour
     public void OnAttack()
     {
        
-            playerHealth.TakeDamage(damage);
+        playerHealth.TakeDamage(damage);
+        Debug.Log("Attacking Player"); 
     }
 }

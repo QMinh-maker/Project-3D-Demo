@@ -23,11 +23,11 @@ public class Health : MonoBehaviour
         if (IsDead) return;
 
         healthPoint -= damage;
-        //Debug.Log($"curernt healthPoint : {healthPoint} - damage: {damage} ");
+        Debug.Log($"curernt healthPoint : {healthPoint} - damage: {damage} ");
         if (IsDead)
         {
             Die();
-            //Debug.Log("Die");
+            Debug.Log("PlayerDie");
         }
         
     }

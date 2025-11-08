@@ -57,6 +57,7 @@ public class ZombieMovement : MonoBehaviour
             agent.isStopped = true;
             anim.SetBool("IsWalking", false);
             zombieAttack.StartAttack();
+            //Debug.Log("Attacking Player");            
         }
     }
 }
