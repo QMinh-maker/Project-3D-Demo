@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
 {
@@ -18,10 +19,17 @@ public class ZombieAttack : MonoBehaviour
     }
 
     // Gọi từ animation event khi zombie vung tay chạm player
-    public void OnAttack()
+    public void OnAttack(int index)
     {
        
         playerHealth.TakeDamage(damage);
-        Debug.Log("Attacking Player"); 
+        if (index == 1)
+        {
+            Player.Instance.playerUi.ShowLeftScratch();
+        }
+        else
+        {
+            Player.Instance.playerUi.ShowRightScratch();
+        }
     }
 }
