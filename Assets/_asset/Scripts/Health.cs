@@ -7,23 +7,34 @@ public class Health : MonoBehaviour
 {
     public int maxHealthPoint;
     public UnityEvent onDie;
+    public UnityEvent<int, int> onHealthChanged;
+    public UnityEvent onTakeDamage;
 
-    private int healthPoint;
+    private int _healthpointValue;
+    public int HealthPoint
+    {
+        get => _healthpointValue;
+        set
+        {
+            _healthpointValue = value;
+            onHealthChanged.Invoke(_healthpointValue, maxHealthPoint);
+        }
+    }
 
-    private bool IsDead => healthPoint <= 0;
+    private bool IsDead => HealthPoint <= 0;
 
     private void Start()
     {
-       healthPoint = maxHealthPoint;
+        HealthPoint = maxHealthPoint;
     }
 
     public void TakeDamage(int damage)
     {
-        //Debug.Log("TakeDamage");
         if (IsDead) return;
 
-        healthPoint -= damage;
-        Debug.Log($"curernt healthPoint : {healthPoint} - damage: {damage} ");
+        HealthPoint -= damage;
+        onTakeDamage.Invoke();
+        Debug.Log($"curernt healthPoint : {HealthPoint} - damage: {damage} ");
         if (IsDead)
         {
             Die();
@@ -34,6 +45,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+
         onDie.Invoke();
     }
 }

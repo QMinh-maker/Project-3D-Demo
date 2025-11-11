@@ -60,4 +60,12 @@ public class ZombieMovement : MonoBehaviour
             //Debug.Log("Attacking Player");            
         }
     }
+
+    public void OnDie()
+    {
+        enabled = false;
+        agent.isStopped = true;
+        
+       
+    }
 }
