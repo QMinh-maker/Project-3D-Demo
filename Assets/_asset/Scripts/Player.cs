@@ -5,4 +5,6 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     public PlayerUi playerUi;
+    public Transform playerFoot;
+    public Health health;
 }

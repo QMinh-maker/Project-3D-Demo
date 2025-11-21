@@ -41,6 +41,10 @@ public class ZombieMovement : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        playerFoot = Player.Instance.playerFoot;
+    }
 
     private void Update()
     {

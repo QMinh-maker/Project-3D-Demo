@@ -17,7 +17,10 @@ public class ZombieAttack : MonoBehaviour
     {
         anim.SetBool("IsAttacking", false);
     }
-
+    private void Start()
+    {
+        playerHealth = Player.Instance.health;
+    }
     // Gọi từ animation event khi zombie vung tay chạm player
     public void OnAttack(int index)
     {
