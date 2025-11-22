@@ -44,6 +44,7 @@ public class ZombieMovement : MonoBehaviour
     private void Start()
     {
         playerFoot = Player.Instance.playerFoot;
+        
     }
 
     private void Update()
@@ -69,7 +70,6 @@ public class ZombieMovement : MonoBehaviour
     {
         enabled = false;
         agent.isStopped = true;
-        
-       
+        anim.SetTrigger("Die");       
     }
 }
