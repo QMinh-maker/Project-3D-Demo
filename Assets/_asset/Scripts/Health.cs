@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public UnityEvent<int, int> onHealthChanged;
     public UnityEvent onTakeDamage;
 
+
     private int _healthpointValue;
     public int HealthPoint
     {
@@ -38,12 +39,12 @@ public class Health : MonoBehaviour
         if (IsDead)
         {
             Die();
-            Debug.Log("PlayerDie");
+            //Debug.Log("PlayerDie");
         }
         
     }
 
-    private void Die()
+    protected virtual void Die()
     {
 
         onDie.Invoke();
