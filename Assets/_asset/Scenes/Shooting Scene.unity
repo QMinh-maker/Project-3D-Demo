@@ -1557,6 +1557,8 @@ MonoBehaviour:
   gameFlow: {fileID: 1484542962}
   requiredKill: 10
   missionText: {fileID: 1572943330}
+  exitDoor: {fileID: 2071805283}
+  playerFoot: {fileID: 1358031266}
 --- !u!4 &678482191
 Transform:
   m_ObjectHideFlags: 0

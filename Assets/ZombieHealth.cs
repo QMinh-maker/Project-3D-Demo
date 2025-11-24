@@ -7,6 +7,6 @@ public class ZombieHealth : Health
     protected override void Die()
     {
         base.Die();
-        //MissionManager.Instance.NotifyZombieKilled(gameObject);
+        MissionManager.Instance.OnZombieKilled(gameObject);
     }
 }
