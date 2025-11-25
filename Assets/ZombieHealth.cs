@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ZombieHealth : Health
 {
+    
     protected override void Die()
     {
         base.Die();
         MissionManager.Instance.OnZombieKilled(gameObject);
+        
     }
 }
