@@ -38,5 +38,5 @@ public class Mousemovement : MonoBehaviour
         //Ap dung xoay cho vat the
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
-}
 #endif
+}
