@@ -12,7 +12,7 @@ public class Mousemovement : MonoBehaviour
     public float topClamp = -90f;
     public float bottomClamp = 90f;
 
-
+#if UNITY_EDITOR || UNITY_STANDALONE
     void Start()
     {
         //khoa con tro o giua & lam no hien len man hinh
@@ -39,3 +39,4 @@ public class Mousemovement : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 }
+#endif
