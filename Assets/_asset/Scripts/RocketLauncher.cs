@@ -13,12 +13,19 @@ public class RocketLauncher : Shooting
     public GunAmmo gunAmmo;
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(LeftMouseButton))
+    //    {
+    //        ShootBullet();
+            
+    //    }
+    //}
+    public void Shoot()
     {
-        if (Input.GetMouseButtonDown(LeftMouseButton))
+        if (!IsLocked)
         {
             ShootBullet();
-            
         }
     }
 

@@ -16,16 +16,27 @@ public class AutomaticShooting : Shooting
 
     private float lastShot;
     private float interval;
+    private bool isShooting;
 
     void Start()
     {
         interval = 60f / rpm;
     }
 
+    public void StartShooting()
+    {
+        isShooting = true;
+    }
+
+    public void StopShooting()
+    {
+        isShooting=false;
+    }
+
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (isShooting)
         {
             UpdateFiring();
             

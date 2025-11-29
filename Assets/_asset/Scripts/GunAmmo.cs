@@ -11,10 +11,7 @@ public class GunAmmo : MonoBehaviour
     public AudioSource[] ReloadSound;
     public Animator anim;
     public UnityEvent LoadedAmmoChanged;
-   
-
-    
-
+       
     private int _loadedAmmoValue;
     public int LoadedAmmo
     {
@@ -38,24 +35,24 @@ public class GunAmmo : MonoBehaviour
 
     public void SingleFireAmmoCounter() => LoadedAmmo--;
 
-    private void LockShooting() => shooting.enabled =false;
+    private void LockShooting() => shooting.IsLocked = true;
 
-    private void UnlockShooting() => shooting.enabled = true;
+    private void UnlockShooting() => shooting.IsLocked = false;
 
     public void OnGunSelected() => UpdateShootingLock();
 
     private void UpdateShootingLock() => shooting.enabled = _loadedAmmoValue > 0;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.R))
+    //    {
+    //        Reload();
            
-        }
+    //    }
         
-    }
+    //}
 
-    private void Reload()
+    public void Reload()
     {
         anim.SetTrigger("Reload");
         LockShooting();

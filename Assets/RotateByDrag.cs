@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class RotateByDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     public float andglePerInch;
@@ -23,7 +24,7 @@ public class RotateByDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     private Quaternion desiredPlayerRotation;
     private Quaternion desiredCameraRotation;
 
-#if UNITY_ANDROID
+
     public void OnPointerDown(PointerEventData eventData)
     {
         startPos = eventData.position;
@@ -68,5 +69,5 @@ public class RotateByDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
                 desiredCameraRotation, sensitivity * Time.deltaTime);
         }
     }
+
 }
-#endif
