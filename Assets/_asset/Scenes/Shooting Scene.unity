@@ -1317,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6f966b9a7c817ed49973b4a8762cbbdf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6f966b9a7c817ed49973b4a8762cbbdf, type: 3}
       propertyPath: m_Layer
@@ -2176,7 +2176,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788875166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2186,7 +2186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 488.2, y: -79.3}
+  m_AnchoredPosition: {x: 488.2, y: -76.3}
   m_SizeDelta: {x: 72.7409, y: 71.6313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &788875168
@@ -3876,7 +3876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1570001086}
-  movingSpeed: 10
+  movingSpeed: 40
   joystick: {fileID: 1828601336}
 --- !u!1 &1572943329
 GameObject:
@@ -4462,6 +4462,7 @@ GameObject:
   - component: {fileID: 1660193296}
   - component: {fileID: 1660193295}
   - component: {fileID: 1660193294}
+  - component: {fileID: 1660193297}
   m_Layer: 5
   m_Name: FireButton
   m_TagString: Untagged
@@ -4533,31 +4534,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1660193295}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 513440747}
-        m_TargetAssemblyTypeName: AutomaticShooting, Assembly-CSharp
-        m_MethodName: StartShooting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 513440747}
-        m_TargetAssemblyTypeName: AutomaticShooting, Assembly-CSharp
-        m_MethodName: StopShooting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1660193295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4596,6 +4573,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660193292}
   m_CullTransparentMesh: 1
+--- !u!114 &1660193297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660193292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 513440747}
+          m_TargetAssemblyTypeName: AutomaticShooting, Assembly-CSharp
+          m_MethodName: StopShooting
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 513440747}
+          m_TargetAssemblyTypeName: AutomaticShooting, Assembly-CSharp
+          m_MethodName: StartShooting
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1661492679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,8 +5944,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078868473300894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0431, y: 0.4816, z: 2.162}
-  m_LocalScale: {x: 3.7128396, y: 1, z: 4.86429}
+  m_LocalPosition: {x: -2.7008, y: 0.4816, z: 0.0535}
+  m_LocalScale: {x: 5.755243, y: 1, z: 8.403989}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 576715266}
@@ -6520,7 +6542,11 @@ PrefabInstance:
     - target: {fileID: 2354607746017668349, guid: 86352b067bba6d94a811bcb5f48e6616, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 4087435394507871164, guid: ea7fe7ed89233a941a497b2d5c606dd9, type: 3}
+      objectReference: {fileID: 5473112746322301494, guid: 23e21cf085fe0954ba775bfa685c229d, type: 3}
+    - target: {fileID: 2354607746017668349, guid: 86352b067bba6d94a811bcb5f48e6616, type: 3}
+      propertyPath: cameraHolder
+      value: 
+      objectReference: {fileID: 612175201}
     - target: {fileID: 2354607746017668350, guid: 86352b067bba6d94a811bcb5f48e6616, type: 3}
       propertyPath: anim
       value: 
@@ -6699,7 +6725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3201028632402350376, guid: 86352b067bba6d94a811bcb5f48e6616, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86352b067bba6d94a811bcb5f48e6616, type: 3}
