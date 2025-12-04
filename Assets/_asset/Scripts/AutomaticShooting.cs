@@ -36,7 +36,7 @@ public class AutomaticShooting : Shooting
     // Update is called once per frame
     private void Update()
     {
-        if (isShooting)
+        if (isShooting || Input.GetKey(KeyCode.Z))
         {
             UpdateFiring();
             

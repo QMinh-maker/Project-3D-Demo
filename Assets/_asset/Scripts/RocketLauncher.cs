@@ -15,14 +15,14 @@ public class RocketLauncher : Shooting
     public Transform cameraHolder;
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetMouseButtonDown(LeftMouseButton))
-    //    {
-    //        ShootBullet();
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Shoot();
 
-    //    }
-    //}
+        }
+    }
     public void Shoot()
     {
         if (!IsLocked)
