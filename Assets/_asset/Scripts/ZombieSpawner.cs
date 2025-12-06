@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -73,6 +74,7 @@ public class ZombieSpawner : MonoBehaviour
     private IEnumerator SpawnZombieByTime()
     {
         while (spawnQuantity > 0)
+        
         {
             SpawnZombie();
             yield return new WaitForSeconds(spawnInterval);
@@ -83,5 +85,6 @@ public class ZombieSpawner : MonoBehaviour
     {
         Instantiate(zombiePrefab, transform.position, transform.rotation);
         spawnQuantity--;
+
     }
 }
