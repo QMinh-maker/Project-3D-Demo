@@ -45,14 +45,10 @@ public class RocketLauncher : Shooting
 
     public void AddProjectile()
     {
-        //Debug.Log("AddProjectile");
-        //gunAmmo.SingleFireAmmoCounter();
-        //GameObject bullet = Instantiate(bulletPrefab, firingPos.position, firingPos.rotation);
-        //bullet.GetComponent<Rigidbody>().velocity = firingPos.forward * bulletSpeed;
-
         gunAmmo.SingleFireAmmoCounter();
 
-        GameObject bullet = Instantiate(bulletPrefab, firingPos.position, firingPos.rotation);
+        //GameObject bullet = Instantiate(bulletPrefab, firingPos.position, firingPos.rotation);
+        GameObject bullet = Lean.Pool.LeanPool.Spawn(bulletPrefab,firingPos.position, firingPos.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
         // Hướng bay dựa theo camera

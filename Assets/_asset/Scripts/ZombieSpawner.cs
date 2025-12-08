@@ -83,7 +83,8 @@ public class ZombieSpawner : MonoBehaviour
 
     private void SpawnZombie()
     {
-        Instantiate(zombiePrefab, transform.position, transform.rotation);
+        //Instantiate(zombiePrefab, transform.position, transform.rotation);
+        Lean.Pool.LeanPool.Spawn(zombiePrefab, transform.position, transform.rotation);
         spawnQuantity--;
 
     }

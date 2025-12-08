@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Lean.Pool;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketMissle : MonoBehaviour
+public class Grenade : MonoBehaviour
 {
     public GameObject explosionPrefab;
     public float explosionRadius;
@@ -13,10 +14,11 @@ public class RocketMissle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Instantiate(explosionPrefab, transform.position,transform.rotation);
+        //Instantiate(explosionPrefab, transform.position,transform.rotation);
+        GameObject explosion = Lean.Pool.LeanPool.Spawn(explosionPrefab, transform.position, transform.rotation);
         BlowObject();
-        Destroy(gameObject);
-        
+        //Destroy(gameObject);
+        LeanPool.Despawn(gameObject);
     }
 
     private void BlowObject()
@@ -50,10 +52,6 @@ public class RocketMissle : MonoBehaviour
            explosionRadius, 1, ForceMode.Impulse);
        }        
     }
-
-
-
-
 }
 
 
