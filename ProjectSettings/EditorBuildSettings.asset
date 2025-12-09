@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_asset/Scenes/Shooting Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/_asset/Scenes/Factory Scene.unity
+    guid: 257fdcc8f94c51c41b887508efd7297c
+  - enabled: 1
+    path: Assets/_asset/Scenes/Battlefield.unity
+    guid: dd264a812a1a8b0408858412f56860e4
   m_configObjects: {}

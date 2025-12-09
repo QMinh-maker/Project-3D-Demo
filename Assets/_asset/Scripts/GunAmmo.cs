@@ -42,15 +42,13 @@ public class GunAmmo : MonoBehaviour
     public void OnGunSelected() => UpdateShootingLock();
 
     private void UpdateShootingLock() => shooting.enabled = _loadedAmmoValue > 0;
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.R))
-    //    {
-    //        Reload();
-           
-    //    }
-        
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
+    }
 
     public void Reload()
     {
