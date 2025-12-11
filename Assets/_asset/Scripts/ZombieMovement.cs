@@ -70,6 +70,19 @@ public class ZombieMovement : MonoBehaviour
     {
         enabled = false;
         agent.isStopped = true;
-        anim.SetTrigger("Die");       
+        anim.SetTrigger("Die");
+        // tắt Collider để không cản vật khác
+        Collider col = GetComponent<Collider>();
+        if (col != null) col.enabled = false;
+
+        // cho xác nằm lại vài giây rồi xoá
+        StartCoroutine(DisappearAfterSeconds(3f));  // 3 giây = tuỳ chỉnh
+    }
+
+    private System.Collections.IEnumerator DisappearAfterSeconds(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Destroy(gameObject);
     }
 }

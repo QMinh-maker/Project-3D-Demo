@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using TigerForge;
 
 public class MissionManager : Singleton<MissionManager>
 {
@@ -15,7 +16,8 @@ public class MissionManager : Singleton<MissionManager>
 
     private void Start()
     {
-        StartCoroutine(VerifyMission()); 
+        StartCoroutine(VerifyMission());
+        //EventManager.StartListening("OnZombieKilled", OnZombieKilled);
     }
 
     private IEnumerator VerifyMission()
