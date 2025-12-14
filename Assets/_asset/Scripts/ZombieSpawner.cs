@@ -54,6 +54,8 @@ public class ZombieSpawner : MonoBehaviour
     //        }
     //    }
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (!isRunning && other.CompareTag("Player"))
